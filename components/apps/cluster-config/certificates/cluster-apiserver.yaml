@@ -8,6 +8,6 @@ spec:
   servingCerts:
     namedCertificates:
     - names:
-      - api.ocp.redcomet.ca
+      - api.bellatrix.redcomet.ca
       servingCertificate:
-        name: api-cert
+        name: api-certiface

@@ -5,4 +5,4 @@ metadata:
   namespace: openshift-ingress-operator
 spec:
   defaultCertificate:
-    name: ingress-cert
+    name: ingress-wildcard
