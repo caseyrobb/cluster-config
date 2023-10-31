@@ -10,4 +10,4 @@ spec:
     - names:
       - api.bellatrix.redcomet.ca
       servingCertificate:
-        name: api-certiface
+        name: api-certificate
