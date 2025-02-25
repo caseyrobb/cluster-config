@@ -10,15 +10,6 @@ This repo contains cluster configurations that I use in my OpenShift clusters.  
 
 # Install OpenShift GitOps
 
-```
-oc apply -k manual
-```
-
-# Add/Enable applications in app-of-apps
-
-```
-vi clusters/<cluster-name>/kustomization.yaml
-```
 
 # Install app-of-apps
 
