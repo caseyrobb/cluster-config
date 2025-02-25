@@ -2,4 +2,14 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 
 resources:
-- github.com/redhat-cop/gitops-catalog/grafana-operator/overlays/aggregate?ref=main
+- ../../base
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/channel
+        value: 'v5'
+    target:
+      kind: Subscription
+      name: grafana-operator
+      namespace: openshift-operators
