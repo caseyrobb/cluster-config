@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+# Operators
+#- ../../components/argocd/openshift-gitops/overlays/latest 
+- ../../components/argocd/sealed-secrets/
+- ../../components/argocd/web-terminal/overlays/fast 
+- ../../components/argocd/compliance-operator/overlays/stable 
+- ../../components/argocd/container-security-operator/overlays/stable-3.13
+- ../../components/argocd/file-integrity-operator/overlays/stable
+- ../../components/argocd/eck-operator/overlays/stable 
+- ../../components/argocd/grafana-operator/overlays/v5 
+#- ../../components/apps/openshift-logging/overlays/stable-6.1 
+#- ../../components/apps/loki-operator/overlays/stable-6.1
+#- ../../components/apps/openshift-pipelines-operator/overlays/latest 
+#- ../../components/apps/advanced-cluster-security/overlays/stable
+#- ../../components/apps/advanced-cluster-management/overlays/release-2.12
+#- ../../components/apps/strimzi-kafka-opeartor/overlays/stable 
+

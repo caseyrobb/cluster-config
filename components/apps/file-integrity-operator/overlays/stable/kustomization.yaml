@@ -1,0 +1,6 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+  - github.com/redhat-cop/gitops-catalog/file-integrity-operator/operator/overlays/stable?ref=main
+  #- github.com/redhat-cop/gitops-catalog/file-integrity-operator/instance/overlays/worker?ref=main

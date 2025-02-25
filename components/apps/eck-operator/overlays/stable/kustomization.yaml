@@ -1,0 +1,5 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+- github.com/redhat-cop/gitops-catalog/eck-operator/overlays/stable?ref=main
