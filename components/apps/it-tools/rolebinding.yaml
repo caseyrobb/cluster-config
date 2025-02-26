@@ -3,6 +3,8 @@ kind: RoleBinding
 metadata:
   name: system:openshift:scc:anyuid
   namespace: it-tools
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

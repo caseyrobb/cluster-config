@@ -3,4 +3,6 @@ kind: Namespace
 metadata:
   labels:
     kubernetes.io/metadata.name: it-tools
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
   name: it-tools

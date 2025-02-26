@@ -5,6 +5,8 @@ metadata:
     app: it-tools
   name: it-tools
   namespace: it-tools
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   replicas: 1
   selector:
