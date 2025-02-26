@@ -3,16 +3,16 @@ kind: Kustomization
 resources:
 # Operators
 #- ../../components/argocd/openshift-gitops/overlays/latest 
-#- ../../components/argocd/sealed-secrets/
+- ../../components/argocd/sealed-secrets/
 #- ../../components/argocd/web-terminal/overlays/fast 
 #- ../../components/argocd/it-tools
 - ../../environments/dev/argocd/it-tools
 - ../../environments/prod/argocd/it-tools
 #- ../../components/argocd/compliance-operator/overlays/stable 
-#- ../../components/argocd/container-security-operator/overlays/stable-3.13
-#- ../../components/argocd/file-integrity-operator/overlays/stable
+- ../../components/argocd/container-security-operator/overlays/stable-3.13
+- ../../components/argocd/file-integrity-operator/overlays/stable
 #- ../../components/argocd/eck-operator/overlays/stable 
-#- ../../components/argocd/grafana-operator/overlays/v5 
+- ../../components/argocd/grafana-operator/overlays/v5 
 #- ../../components/apps/openshift-logging/overlays/stable-6.1 
 #- ../../components/apps/loki-operator/overlays/stable-6.1
 #- ../../components/apps/openshift-pipelines-operator/overlays/latest 
