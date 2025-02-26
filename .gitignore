@@ -1,10 +1,2 @@
 extras
-acm
-logging
-pipelines
-rhsso
 *.bak
-acs-config
-odf
-huginn
-user-ca-bundle-cm.yaml
