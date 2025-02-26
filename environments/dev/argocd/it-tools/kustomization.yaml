@@ -8,6 +8,9 @@ patches:
       - op: replace
         path: /spec/source/path
         value: 'environments/dev/apps/it-tools'
+      - op: replace
+        path: /metadata/name
+        value: 'it-tools-dev'
     target:
       kind: Application
       name: it-tools
