@@ -4,10 +4,12 @@ resources:
 # Operators
 #- ../../components/argocd/openshift-gitops/overlays/latest 
 #- ../../components/argocd/sealed-secrets/
-- ../../components/argocd/web-terminal/overlays/fast 
+#- ../../components/argocd/web-terminal/overlays/fast 
 #- ../../components/argocd/it-tools
-- ../../components/argocd/compliance-operator/overlays/stable 
-- ../../components/argocd/container-security-operator/overlays/stable-3.13
+- ../../environments/dev/argocd/argocd/it-tools
+- ../../environments/prod/argocd/argocd/it-tools
+#- ../../components/argocd/compliance-operator/overlays/stable 
+#- ../../components/argocd/container-security-operator/overlays/stable-3.13
 #- ../../components/argocd/file-integrity-operator/overlays/stable
 #- ../../components/argocd/eck-operator/overlays/stable 
 #- ../../components/argocd/grafana-operator/overlays/v5 
