@@ -10,8 +10,7 @@ patches:
   - patch: |-
       - op: add
         path: /spec/host
-        value: 'it-tools-dev.apps.cluster-qmznk.dynamic.redhatworkshops.io '
+        value: 'it-tools-dev.apps.cluster-qmznk.dynamic.redhatworkshops.io'
     target:
       kind: Route
       name: it-tools
-      namespace: it-tools-dev
