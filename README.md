@@ -8,11 +8,8 @@ This repo contains cluster configurations that I use in my OpenShift clusters.  
 ## App of Apps
 ![alt text](https://raw.githubusercontent.com/caseyrobb/cluster-config/master/appofapps.png)
 
-# Install OpenShift GitOps
-
-
 # Install app-of-apps
 
 ```
-oc apply -k bootstrap/clusters/overlays/<cluster-name>
+oc apply -k bootstrap/overlays/<cluster-name>
 ```
