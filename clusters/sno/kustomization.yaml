@@ -5,6 +5,7 @@ resources:
 #- ../../components/argocd/openshift-gitops/overlays/latest 
 #- ../../components/argocd/sealed-secrets/
 #- ../../components/argocd/web-terminal/overlays/fast 
+- ../../components/argocd/cert-manager/overlays/stable-v1 
 - ../../components/argocd/compliance-operator/overlays/stable 
 #- ../../components/argocd/container-security-operator/overlays/stable-3.13
 - ../../components/argocd/file-integrity-operator/overlays/stable

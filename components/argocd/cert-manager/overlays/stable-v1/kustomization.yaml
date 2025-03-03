@@ -1,0 +1,15 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+- ../../base
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/source/path
+        value: 'components/apps/cert-manager/overlays/stable-v1'
+    target:
+      kind: Application
+      name: openshift-cert-manager
+      namespace: openshift-gitops
