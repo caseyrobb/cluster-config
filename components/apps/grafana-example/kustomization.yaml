@@ -6,5 +6,5 @@ resources:
 - grafana-datasource.yaml
 - grafana-instance.yaml
 - grafana-sa-crb.yaml
-- grafana-secret-creds.yaml
+#- grafana-secret-creds.yaml
 - serviceaccount.yaml
