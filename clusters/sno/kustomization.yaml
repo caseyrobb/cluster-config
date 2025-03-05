@@ -12,6 +12,7 @@ resources:
 - ../../components/argocd/file-integrity-operator/overlays/stable
 #- ../../components/argocd/eck-operator/overlays/stable 
 - ../../components/argocd/grafana-operator/overlays/v5 
+- ../../components/argocd/grafana-example
 #- ../../components/apps/openshift-logging/overlays/stable-6.1 
 #- ../../components/apps/loki-operator/overlays/stable-6.1
 #- ../../components/apps/openshift-pipelines-operator/overlays/latest 
