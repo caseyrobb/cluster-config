@@ -8,3 +8,4 @@ resources:
 - grafana-sa-crb.yaml
 #- grafana-secret-creds.yaml
 - serviceaccount.yaml
+- route.yaml
