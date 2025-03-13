@@ -1,0 +1,112 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: build-and-scan
+spec:
+  workspaces:
+  - name: shared-workspace
+  params:
+  - name: deployment-name
+    type: string
+    description: name of the deployment to be patched
+  - name: git-url
+    type: string
+    description: url of the git repo for the code of deployment
+  - name: git-revision
+    type: string
+    description: revision to be used from repo of the code for deployment
+    default: "master"
+  - name: IMAGE
+    type: string
+    description: image to be build from the code
+  - name: remoteimage
+    type: string
+    description: image to scan
+  - name: rox_central_endpoint
+    type: string
+    description: Secret containing the address:port tuple for StackRox Central (example - rox.stackrox.io:443)
+  - name: rox_api_token
+    type: string
+    description: Secret containing the StackRox API token with CI permissions    
+  tasks:
+  - name: fetch-repository
+    taskRef:
+      name: git-clone
+      kind: Task
+    workspaces:
+    - name: output
+      workspace: shared-workspace
+    params:
+    - name: url
+      value: $(params.git-url)
+    - name: subdirectory
+      value: ""
+    - name: deleteExisting
+      value: "true"
+    - name: revision
+      value: $(params.git-revision)
+
+  - name: build-image
+    taskRef:
+      name: buildah
+      kind: Task
+    params:
+    - name: IMAGE
+      value: $(params.IMAGE)
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    runAfter:
+    - fetch-repository
+
+    
+  - name: rox-deployment-check
+    taskRef:
+      name: rox-deployment-check
+      kind: Task
+    params:
+      - name: rox_central_endpoint
+        value: $(params.rox_central_endpoint)
+      - name: rox_api_token
+        value: $(params.rox_api_token)     
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    runAfter:
+    - build-image
+
+  - name: rox-image-check
+    taskRef:
+      name: rox-image-check
+      kind: Task
+    params:
+      - name: rox_central_endpoint
+        value: $(params.rox_central_endpoint)
+      - name: rox_api_token
+        value: $(params.rox_api_token)
+      - name: image
+        value: $(params.remoteimage)           
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    runAfter:
+    - build-image
+
+  - name: rox-image-scan
+    taskRef:
+      name: rox-image-scan
+      kind: Task
+    params:
+      - name: rox_central_endpoint
+        value: $(params.rox_central_endpoint)
+      - name: rox_api_token
+        value: $(params.rox_api_token)
+      - name: image
+        value: $(params.remoteimage)
+      - name: output_format
+        value: json
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    runAfter:
+    - build-image
