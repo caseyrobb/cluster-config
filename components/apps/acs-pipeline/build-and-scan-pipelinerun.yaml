@@ -12,9 +12,6 @@ spec:
     value: https://github.com/openshift/pipelines-vote-api.git
   - name: IMAGE
     value: image-registry.openshift-image-registry.svc:5000/devsecops/pipelines-vote-api
-  - name: remoteimage
-    #value: quay.io/carobb/pipelines-vote-api:latest
-    value: quay.io/carobb/etcd-benchmark:latest
   - name: rox_central_endpoint
     value: roxsecrets
   - name: rox_api_token

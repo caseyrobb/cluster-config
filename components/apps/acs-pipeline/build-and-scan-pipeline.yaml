@@ -19,9 +19,6 @@ spec:
   - name: IMAGE
     type: string
     description: image to be build from the code
-  - name: remoteimage
-    type: string
-    description: image to scan
   - name: rox_central_endpoint
     type: string
     description: Secret containing the address:port tuple for StackRox Central (example - rox.stackrox.io:443)
@@ -85,7 +82,7 @@ spec:
       - name: rox_api_token
         value: $(params.rox_api_token)
       - name: image
-        value: $(params.remoteimage)           
+        value: $(params.IMAGE)           
     workspaces:
     - name: source
       workspace: shared-workspace
@@ -102,7 +99,7 @@ spec:
       - name: rox_api_token
         value: $(params.rox_api_token)
       - name: image
-        value: $(params.remoteimage)
+        value: $(params.IMAGE)
       - name: output_format
         value: json
     workspaces:
