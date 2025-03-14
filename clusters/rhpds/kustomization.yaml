@@ -3,16 +3,19 @@ kind: Kustomization
 resources:
 # Operators
 #- ../../components/argocd/openshift-gitops/overlays/latest 
-- ../../components/argocd/sealed-secrets/
+#- ../../components/argocd/sealed-secrets/
+- ../../components/argocd/vault/
 #- ../../components/argocd/web-terminal/overlays/fast 
-#- ../../components/argocd/it-tools
-- ../../environments/dev/argocd/it-tools
-- ../../environments/prod/argocd/it-tools
+#- ../../components/argocd/cert-manager/overlays/stable-v1 
+#- ../../components/argocd/external-secrets-operator/overlays/stable
 #- ../../components/argocd/compliance-operator/overlays/stable 
-- ../../components/argocd/container-security-operator/overlays/stable-3.13
-- ../../components/argocd/file-integrity-operator/overlays/stable
+- ../../components/argocd/namespace-configuration-operator/overlays/default
+- ../../components/argocd/clusterversion/overlays/4.17.16
+#- ../../components/argocd/container-security-operator/overlays/stable-3.13
+#- ../../components/argocd/file-integrity-operator/overlays/stable
 #- ../../components/argocd/eck-operator/overlays/stable 
-- ../../components/argocd/grafana-operator/overlays/v5 
+#- ../../components/argocd/grafana-operator/overlays/v5 
+#- ../../components/argocd/grafana-example
 #- ../../components/apps/openshift-logging/overlays/stable-6.1 
 #- ../../components/apps/loki-operator/overlays/stable-6.1
 #- ../../components/apps/openshift-pipelines-operator/overlays/latest 
