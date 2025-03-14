@@ -4,3 +4,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 resources:
 - github.com/redhat-cop/gitops-catalog/namespace-configuration-operator/overlays/default?ref=main
 - tshirt-quotas.yaml
+
+patches:
+  - patch: |-
+      - op: remove
+        path: /spec/targetNamespaces
+    target:
+      kind: OperatorGroup
+      name: namespace-configuration-operator
+      group: operators.coreos.com
+      version: v1
+
