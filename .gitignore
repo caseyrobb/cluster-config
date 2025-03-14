@@ -1,3 +1,4 @@
 extras
 *.bak
 grafana-secret-creds.yaml
+roxsecrets.yaml
