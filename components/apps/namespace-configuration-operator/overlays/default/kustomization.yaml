@@ -14,4 +14,10 @@ patches:
       name: namespace-configuration-operator
       group: operators.coreos.com
       version: v1
-
+  - patch: |-
+      - op: add
+        path: /metadata/annotations/argocd.argoproj.io~1compare-options
+        value: IgnoreExtraneous
+    target:
+      kind: Subscription
+      name: namespace-configuration-operator
