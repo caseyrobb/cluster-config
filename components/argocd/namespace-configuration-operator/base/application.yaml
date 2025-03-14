@@ -12,5 +12,8 @@ spec:
     targetRevision: HEAD
   project: default
   syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
     syncOptions:
       - ServerSideApply=true
