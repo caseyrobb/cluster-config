@@ -1,0 +1,54 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: rox-image-scan
+spec:
+  params:
+    - description: >-
+        https://hub.tekton.dev/tekton/task/stackrox-image-scan
+        Scan an image with StackRox/RHACS
+        This tasks allows you to return full vulnerability scan results for an image
+        in JSON, CSV, or Pretty format.
+        It's a companion to the stackrox-image-check task,
+        which checks an image against build-time policies.
+      name: rox_central_endpoint
+      type: string
+    - description: Secret containing the StackRox API token with CI permissions
+      name: rox_api_token
+      type: string
+    - description: 'Full name of image to scan (example -- gcr.io/rox/sample:5.0-rc1)'
+      name: image
+      type: string
+    - name: output_format
+      type: string
+      description:  Output format (json | csv | table)
+      default: table
+  results:
+    - description: Output of `roxctl image scan`
+      name: check_output
+  workspaces:
+    - description: The workspace consisting of maven project.
+      name: source      
+  steps:
+    - env:
+        - name: ROX_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: rox_api_token
+              name: $(params.rox_api_token)
+        - name: ROX_CENTRAL_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: rox_central_endpoint
+              name: $(params.rox_central_endpoint)
+      image: registry.access.redhat.com/ubi9/ubi-minimal:latest
+      name: rox-image-scan
+      resources: {}
+      script: >-
+        #!/usr/bin/env bash
+
+        curl -s -k -L -H "Authorization: Bearer $ROX_API_TOKEN" https://$ROX_CENTRAL_ENDPOINT/api/cli/download/roxctl-linux --output ./roxctl  > /dev/null; echo "Getting roxctl"
+
+        chmod +x ./roxctl  > /dev/null
+
+        ./roxctl image scan --insecure-skip-tls-verify --force -e $ROX_CENTRAL_ENDPOINT --image $(params.image) --output $(params.output_format)
