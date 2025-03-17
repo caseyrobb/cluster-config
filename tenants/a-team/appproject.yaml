@@ -16,7 +16,7 @@ spec:
     - a-team
     name: a-team-admin
     policies:
-    - p, proj:a-team:a-team-admin, applications, *, a-team/*, allow
+    - p, proj:a-team, applications, *, tenant-a-team/*, allow
   sourceRepos:
   - '*https://github.com/caseyrobb/tenant-repos'
   - '*https://github.com/caseyrobb/cluster-config'

@@ -16,7 +16,7 @@ spec:
     - b-team
     name: b-team-admin
     policies:
-    - p, proj:b-team:b-team-admin, applications, *, b-team/*, allow
+    - p, proj:b-team, applications, *, tenant-b-team/*, allow
   sourceRepos:
   - '*https://github.com/caseyrobb/tenant-repos'
   - '*https://github.com/caseyrobb/cluster-config'
