@@ -49,6 +49,7 @@ spec:
               matchLabels:
                 network.openshift.io/policy-group: "ingress" 
             podSelector: {}
+        podSelector: {}
         policyTypes:
         - Ingress
 ---
@@ -78,6 +79,7 @@ spec:
               matchLabels:
                 network.openshift.io/policy-group: "monitoring"
             podSelector: {}
+        podSelector: {}
         policyTypes:
           - Ingress
 ---
@@ -147,6 +149,7 @@ spec:
               podSelector:
                 matchLabels:
                   app: kube-apiserver-operator
+        podSelector: {}
         policyTypes:
           - Ingress
 ---
