@@ -3,7 +3,7 @@ kind: LabelTransformer
 metadata:
   name: global-labels
 labels:
-  redcomet.ca/team-name: b-team
+  redcomet.ca/team-name: c-team
   redcomet.ca/tenant: "true"
   openshift.io/user-monitoring: "true"
   argocd.argoproj.io/managed-by: tenant-gitops
