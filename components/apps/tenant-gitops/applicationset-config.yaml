@@ -13,6 +13,7 @@ spec:
       elements:
         - team: a-team
         - team: b-team
+        - team: c-team
   template:
     metadata:
       name: 'tenant-{{.team}}-config'
