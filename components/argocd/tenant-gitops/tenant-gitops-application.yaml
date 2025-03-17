@@ -12,5 +12,8 @@ spec:
     targetRevision: tenant-onboarding
   project: default
   syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
     syncOptions:
       - ServerSideApply=true
