@@ -12,7 +12,6 @@ spec:
   - list:
       elements:
         - team: a-team
-        - team: a-team
         - team: b-team
   template:
     metadata:
