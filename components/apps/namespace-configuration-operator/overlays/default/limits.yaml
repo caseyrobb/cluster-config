@@ -1,7 +1,7 @@
 apiVersion: redhatcop.redhat.io/v1alpha1
 kind: NamespaceConfig
 metadata:
-  name: {{ .Name }}-default-limits
+  name: tenant-default-limits
 spec:
   labelSelector:
     matchLabels:
