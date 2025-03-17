@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    app.kubernetes.io/instance: tenant-gitops
+  name: tenant-a-team-sockshop
+  namespace: tenant-gitops
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: tenant-a-team-sockshop
+  project: a-team
+  source:
+    path: a-team/sockshop
+    repoURL: https://github.com/caseyrobb/tenant-repos
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - ServerSideApply=true
