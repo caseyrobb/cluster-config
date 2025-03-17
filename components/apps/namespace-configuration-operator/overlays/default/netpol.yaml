@@ -8,7 +8,7 @@ spec:
       redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
-      apiVersion: v1
+      apiVersion: networking.k8s.io/v1
       kind: NetworkPolicies
       metadata:
         name: {{ .Name }}-deny-by-default
@@ -29,7 +29,7 @@ spec:
       redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
-      apiVersion: v1
+      apiVersion: networking.k8s.io/v1
       kind: NetworkPolicies
       metadata:
         name: {{ .Name }}-allow-from-ingress
@@ -54,7 +54,7 @@ spec:
       redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
-      apiVersion: v1
+      apiVersion: networking.k8s.io/v1
       kind: NetworkPolicies
       metadata:
         name: {{ .Name }}-allow-from-monitoring
@@ -79,7 +79,7 @@ spec:
       redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
-      apiVersion: v1
+      apiVersion: networking.k8s.io/v1
       kind: NetworkPolicies
       metadata:
         name: {{ .Name }}-allow-to-dns
@@ -113,7 +113,7 @@ spec:
       redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
-      apiVersion: v1
+      apiVersion: networking.k8s.io/v1
       kind: NetworkPolicies
       metadata:
         name: {{ .Name }}-allow-from-api
@@ -140,7 +140,7 @@ spec:
       redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
-      apiVersion: v1
+      apiVersion: networking.k8s.io/v1
       kind: NetworkPolicies
       metadata:
         name: {{ .Name }}-allow-from-same-namespace
