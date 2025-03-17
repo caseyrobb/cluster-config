@@ -21,6 +21,6 @@ spec:
       source:
         repoURL: https://github.com/caseyrobb/cluster-config
         targetRevision: HEAD
-        path: 'tenants/overlays/{{.team}}'
+        path: 'tenants/{{.team}}'
       destination:
         server: https://kubernetes.default.svc 
