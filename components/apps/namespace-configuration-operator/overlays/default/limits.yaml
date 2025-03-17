@@ -1,0 +1,30 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: {{ .Name }}-default-limits
+spec:
+  labelSelector:
+    matchLabels:
+      redcomet.ca/tenant: true  
+  templates:
+  - objectTemplate: |  
+      apiVersion: v1
+      kind: LimitRanges
+      metadata:
+        name: {{ .Name }}-limits
+        namespace: {{ .Name }}  
+      spec:
+        limits:
+        - type: Container
+          min:
+            cpu: "100m"
+            memory: 32Mi
+          max:
+            cpu: "8"
+            memory: 8Gi 
+          default:
+            cpu: "500m"
+            memory: 512Mi
+          defaultRequest:
+            cpu: "250m"
+            memory: 128Mi
