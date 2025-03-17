@@ -11,6 +11,7 @@ resources:
 #- ../../components/argocd/compliance-operator/overlays/stable 
 - ../../components/argocd/namespace-configuration-operator/overlays/default
 - ../../components/argocd/clusterversion/overlays/4.17.19
+- ../../components/argocd/tenant-gitops/
 #- ../../components/argocd/container-security-operator/overlays/stable-3.13
 #- ../../components/argocd/file-integrity-operator/overlays/stable
 #- ../../components/argocd/eck-operator/overlays/stable 
