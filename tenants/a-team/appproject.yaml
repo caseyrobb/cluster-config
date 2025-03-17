@@ -19,3 +19,4 @@ spec:
     - p, proj:a-team:a-team-admin, applications, *, a-team/*, allow
   sourceRepos:
   - '*https://github.com/caseyrobb/tenant-repos'
+  - '*https://github.com/caseyrobb/cluster-config'
