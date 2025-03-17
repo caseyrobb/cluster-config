@@ -19,7 +19,7 @@ spec:
       labels:
         app.kubernetes.io/instance: tenant-gitops
     spec:
-      project: '{{.team}}'
+      project: default
       source:
         repoURL: https://github.com/caseyrobb/cluster-config
         targetRevision: tenant-onboarding
