@@ -7,7 +7,7 @@ spec:
   description: A-Team project
   destinations:
   - name: in-cluster
-    namespace: tenant-a-team*
+    namespace: '*'
     server: https://kubernetes.default.svc
   roles:
   - groups:
