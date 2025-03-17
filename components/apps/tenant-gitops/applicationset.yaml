@@ -12,12 +12,14 @@ spec:
   - list:
       elements:
         - team: a-team
-          url: https://kubernetes.default.svc
+          appname: guestbook
+        - team: a-team
+          appname: sockshop
         - team: b-team
-          url: https://kubernetes.default.svc
+          appname: sockshop
   template:
     metadata:
-      name: 'tenant-{{.team}}'
+      name: 'tenant-{{.team}}-{{.appname}}'
       labels:
         app.kubernetes.io/instance: tenant-gitops
     spec:
@@ -25,6 +27,6 @@ spec:
       source:
         repoURL: https://github.com/caseyrobb/cluster-config
         targetRevision: tenant-onboarding
-        path: 'tenants/{{.team}}'
+        path: 'tenants/{{.team}}/{{.appname}}'
       destination:
-        server: '{{.url}}'
+        server: https://kubernetes.default.svc
