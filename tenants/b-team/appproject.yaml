@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  labels:
+    redcomet.ca/team-name: b-team
+  name: b-team
+  namespace: tenant-gitops
+spec:
+  description: B-Team project
+  destinations:
+  - name: in-cluster
+    namespace: tenant-b-team-*
+    server: https://kubernetes.default.svc
+  roles:
+  - groups:
+    - b-team
+    name: b-team-admin
+    policies:
+    - p, proj:b-team:b-team-admin, applications, *, b-team/*, allow
+  sourceRepos:
+  - '*https://github.com/caseyrobb/tenant-repos'
