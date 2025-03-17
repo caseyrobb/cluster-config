@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 # Operators
 #- ../../components/argocd/openshift-gitops/overlays/latest 
-#- ../../components/argocd/sealed-secrets/
+- ../../components/argocd/sealed-secrets/
 #- ../../components/argocd/vault/
 #- ../../components/argocd/web-terminal/overlays/fast 
 #- ../../components/argocd/cert-manager/overlays/stable-v1 
