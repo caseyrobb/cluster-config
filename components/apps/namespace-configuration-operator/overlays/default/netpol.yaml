@@ -5,7 +5,7 @@ metadata:
 spec:
   labelSelector:
     matchLabels:
-      redcomet.ca/tenant: true  
+      redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
       apiVersion: v1
@@ -26,7 +26,7 @@ metadata:
 spec:
   labelSelector:
     matchLabels:
-      redcomet.ca/tenant: true  
+      redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
       apiVersion: v1
@@ -51,7 +51,7 @@ metadata:
 spec:
   labelSelector:
     matchLabels:
-      redcomet.ca/tenant: true  
+      redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
       apiVersion: v1
@@ -76,7 +76,7 @@ metadata:
 spec:
   labelSelector:
     matchLabels:
-      redcomet.ca/tenant: true  
+      redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
       apiVersion: v1
@@ -110,7 +110,7 @@ metadata:
 spec:
   labelSelector:
     matchLabels:
-      redcomet.ca/tenant: true  
+      redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
       apiVersion: v1
@@ -137,7 +137,7 @@ metadata:
 spec:
   labelSelector:
     matchLabels:
-      redcomet.ca/tenant: true  
+      redcomet.ca/tenant: "true"  
   templates:
   - objectTemplate: |  
       apiVersion: v1
