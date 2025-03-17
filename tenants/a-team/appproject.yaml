@@ -23,4 +23,3 @@ spec:
     - tenant-a-team-*
   sourceRepos:
   - '*https://github.com/caseyrobb/tenant-repos'
-  - '*https://github.com/caseyrobb/cluster-config'
