@@ -3,7 +3,7 @@ kind: Application
 metadata:
   labels:
     app.kubernetes.io/instance: tenant-gitops
-  name: tenant-b-team-sockshop
+  name: tenant-b-team-sockshop-app
   namespace: tenant-gitops
 spec:
   destination:
