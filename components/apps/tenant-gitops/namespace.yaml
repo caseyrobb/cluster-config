@@ -3,6 +3,6 @@ kind: Namespace
 metadata:
   name: tenant-gitops
   labels:
-    openshift.io/cluster-monitoring: true
+    openshift.io/cluster-monitoring: "true"
   annotations:
     argocd.argoproj.io/sync-wave: "1"
