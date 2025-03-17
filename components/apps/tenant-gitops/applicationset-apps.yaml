@@ -33,3 +33,7 @@ spec:
         kind: Application
         jsonPointers:
           - /metadata/labels
+      syncOptions:
+        automated:
+          selfHeal: true
+          prune: true
