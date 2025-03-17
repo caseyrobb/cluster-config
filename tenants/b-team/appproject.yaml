@@ -4,10 +4,10 @@ metadata:
   name: b-team
   namespace: tenant-gitops
 spec:
-  description: b-team project
+  description: B-team project
   destinations:
   - name: in-cluster
-    namespace: 'tenant-b-team*'
+    namespace: '*'
     server: https://kubernetes.default.svc
   roles:
   - groups:
