@@ -1,0 +1,13 @@
+apiVersion: builtin
+kind: LabelTransformer
+metadata:
+  name: global-labels
+labels:
+  redcomet.ca/team-name: b-team
+  redcomet.ca/tenant: "true"
+  openshift.io/user-monitoring: "true"
+  argocd.argoproj.io/managed-by: tenant-gitops
+fieldSpecs:
+- kind: Namespace
+  path: metadata/labels
+  create: true
