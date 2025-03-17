@@ -3,6 +3,8 @@ kind: ApplicationSet
 metadata:
   name: tenant-config
   namespace: tenant-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
@@ -13,7 +15,7 @@ spec:
         - team: b-team
   template:
     metadata:
-      name: 'tenant-{{.team}}-config'
+      name: 'tenant-{{.team}}'
     spec:
       project: '{{.team}}'
       source:
@@ -22,4 +24,3 @@ spec:
         path: 'tenants/overlays/{{.team}}'
       destination:
         server: https://kubernetes.default.svc 
-        namespace: 'tenant-{{.team}}-config
