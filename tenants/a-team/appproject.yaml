@@ -17,6 +17,7 @@ spec:
     name: a-team-admin
     policies:
       - p, proj:a-team:a-team-admin, applications, *, tenant-a-team/*, allow
+      - p, proj:a-team:a-team-admin, applications, *, tenant-gitops, allow
   sourceNamespaces:
     - tenant-gitops
     - tenant-a-team-*
