@@ -9,7 +9,7 @@ spec:
   templates:
   - objectTemplate: |  
       apiVersion: networking.k8s.io/v1
-      kind: NetworkPolicies
+      kind: NetworkPolicy
       metadata:
         name: {{ .Name }}-deny-by-default
         namespace: {{ .Name }}  
@@ -30,7 +30,7 @@ spec:
   templates:
   - objectTemplate: |  
       apiVersion: networking.k8s.io/v1
-      kind: NetworkPolicies
+      kind: NetworkPolicy
       metadata:
         name: {{ .Name }}-allow-from-ingress
         namespace: {{ .Name }}  
@@ -55,7 +55,7 @@ spec:
   templates:
   - objectTemplate: |  
       apiVersion: networking.k8s.io/v1
-      kind: NetworkPolicies
+      kind: NetworkPolicy
       metadata:
         name: {{ .Name }}-allow-from-monitoring
         namespace: {{ .Name }}  
@@ -80,7 +80,7 @@ spec:
   templates:
   - objectTemplate: |  
       apiVersion: networking.k8s.io/v1
-      kind: NetworkPolicies
+      kind: NetworkPolicy
       metadata:
         name: {{ .Name }}-allow-to-dns
         namespace: {{ .Name }}  
@@ -114,7 +114,7 @@ spec:
   templates:
   - objectTemplate: |  
       apiVersion: networking.k8s.io/v1
-      kind: NetworkPolicies
+      kind: NetworkPolicy
       metadata:
         name: {{ .Name }}-allow-from-api
         namespace: {{ .Name }}  
@@ -141,7 +141,7 @@ spec:
   templates:
   - objectTemplate: |  
       apiVersion: networking.k8s.io/v1
-      kind: NetworkPolicies
+      kind: NetworkPolicy
       metadata:
         name: {{ .Name }}-allow-from-same-namespace
         namespace: {{ .Name }}  
