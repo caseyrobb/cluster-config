@@ -15,7 +15,7 @@ spec:
     kind: "NamespaceConfig"
     name: "*"
     jqPathExpressions:
-      - .spec.templates[].excludedPaths
+      - .spec.templates[].excludedPaths[]
   project: default
   syncPolicy:
     automated:
