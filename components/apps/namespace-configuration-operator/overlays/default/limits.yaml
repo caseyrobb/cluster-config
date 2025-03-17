@@ -13,7 +13,7 @@ spec:
       - .metadata
     objectTemplate: |  
       apiVersion: v1
-      kind: LimitRanges
+      kind: LimitRange
       metadata:
         name: {{ .Name }}-limits
         namespace: {{ .Name }}  
