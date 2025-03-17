@@ -7,7 +7,11 @@ spec:
     matchLabels:
       namespace-size: small  
   templates:
-  - objectTemplate: |  
+  - excludedPaths:	
+      - .status	
+      - .spec.replicas	
+      - .metadata
+    objectTemplate: |  
       apiVersion: v1
       kind: ResourceQuota
       metadata:
@@ -34,7 +38,11 @@ spec:
     matchLabels:
       namespace-size: medium  
   templates:
-  - objectTemplate: |
+  - excludedPaths:	
+      - .status	
+      - .spec.replicas	
+      - .metadata
+    objectTemplate: |  
       apiVersion: v1
       kind: ResourceQuota
       metadata:
@@ -61,7 +69,11 @@ spec:
     matchLabels:
       namespace-size: large  
   templates:
-  - objectTemplate: |
+  - excludedPaths:	
+      - .status	
+      - .spec.replicas	
+      - .metadata
+    objectTemplate: |
       apiVersion: v1
       kind: ResourceQuota
       metadata:
