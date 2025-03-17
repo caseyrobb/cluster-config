@@ -11,6 +11,3 @@ fieldSpecs:
 - kind: Namespace
   path: metadata/labels
   create: true
-- kind: applications.argoproj.io
-  path: metadata/labels
-  create: true
