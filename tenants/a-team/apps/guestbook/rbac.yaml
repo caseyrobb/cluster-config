@@ -1,0 +1,35 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: a-team-group-admin
+  namespace: tenant-a-team-guestbook
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: a-team
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: system:openshift:scc:privilged
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:privilged
+rules:
+- apiGroups:
+  - security.openshift.io
+  resourceNames:
+  - privilged
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - use
+subjects:
+- kind: ServiceAccount
+  name: guestbook
+  namespace: tenant-a-team-guestbook

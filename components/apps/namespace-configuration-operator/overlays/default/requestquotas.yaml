@@ -1,0 +1,92 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: namespace-requests-small
+spec:
+  labelSelector:
+    matchLabels:
+      namespace-size: small  
+  templates:
+  - excludedPaths:	
+      - .status	
+      - .spec.replicas	
+      - .metadata
+    objectTemplate: |  
+      apiVersion: v1
+      kind: ResourceQuota
+      metadata:
+        name: small-size
+        namespace: {{ .Name }}  
+      spec:
+        hard:
+          requests.cpu: "2"
+          requests.memory: "2Gi"
+          requests.storage: "10Gi"
+          requests.ephemeral-storage: "10Gi"
+          limits.cpu: "4"
+          limits.memory: "4Gi"
+          limits.ephemeral-storage: "20Gi"
+          pods: "20"
+          persistentvolumeclaims: "10"
+---
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: namespace-requests-medium
+spec:
+  labelSelector:
+    matchLabels:
+      namespace-size: medium  
+  templates:
+  - excludedPaths:	
+      - .status	
+      - .spec.replicas	
+      - .metadata
+    objectTemplate: |  
+      apiVersion: v1
+      kind: ResourceQuota
+      metadata:
+        name: large-size
+        namespace: {{ .Name }}
+      spec:
+        hard:
+          requests.cpu: "4"
+          requests.memory: "4Gi"
+          requests.storage: "20Gi"
+          requests.ephemeral-storage: "20Gi"
+          limits.cpu: "8"
+          limits.memory: "8Gi"
+          limits.ephemeral-storage: "40Gi"
+          pods: "40"
+          persistentvolumeclaims: "20"
+---
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: namespace-size-large
+spec:
+  labelSelector:
+    matchLabels:
+      namespace-size: large  
+  templates:
+  - excludedPaths:	
+      - .status	
+      - .spec.replicas	
+      - .metadata
+    objectTemplate: |
+      apiVersion: v1
+      kind: ResourceQuota
+      metadata:
+        name: large-size
+        namespace: {{ .Name }}
+      spec:
+        hard:
+          requests.cpu: "8"
+          requests.memory: "8Gi"
+          requests.storage: "50Gi"
+          requests.ephemeral-storage: "50Gi"
+          limits.cpu: "16"
+          limits.memory: "16Gi"
+          limits.ephemeral-storage: "50Gi"
+          pods: "80"
+          persistentvolumeclaims: "40"

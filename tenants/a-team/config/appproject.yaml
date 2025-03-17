@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: a-team
+  namespace: tenant-gitops
+spec:
+  description: A-Team project
+  destinations:
+  - name: in-cluster
+    namespace: '*'
+    server: https://kubernetes.default.svc
+  roles:
+  - groups:
+    - a-team
+    name: a-team-admin
+    policies:
+    - p, proj:a-team:a-team-admin, applications, *, a-team/*, allow
+  sourceRepos:
+  - https://github.com/caseyrobb/cluster-config
+  - https://github.com/caseyrobb/tenant-repos

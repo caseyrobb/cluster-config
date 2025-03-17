@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: tenant-config
+  namespace: tenant-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+        - team: a-team
+        - team: b-team
+  template:
+    metadata:
+      name: 'tenant-{{.team}}-config'
+      labels:
+        app.kubernetes.io/instance: tenant-gitops
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/caseyrobb/cluster-config
+        targetRevision: HEAD
+        path: 'tenants/{{.team}}/config'
+      destination:
+        server: https://kubernetes.default.svc
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

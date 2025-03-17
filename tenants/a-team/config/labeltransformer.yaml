@@ -1,0 +1,12 @@
+apiVersion: builtin
+kind: LabelTransformer
+metadata:
+  name: global-labels
+labels:
+  redcomet.ca/team-name: a-team
+  redcomet.ca/tenant: "true"
+  openshift.io/user-monitoring: "true"
+fieldSpecs:
+- kind: Namespace
+  path: metadata/labels
+  create: true

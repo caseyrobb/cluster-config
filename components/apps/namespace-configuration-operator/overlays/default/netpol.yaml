@@ -1,0 +1,179 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: namespace-deny-by-default
+spec:
+  labelSelector:
+    matchLabels:
+      redcomet.ca/tenant: "true"  
+  templates:
+  - excludedPaths:
+      - .status
+      - .spec.replicas
+      - .metadata
+    objectTemplate: |
+      apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: {{ .Name }}-deny-by-default
+        namespace: {{ .Name }}  
+      spec:
+        podSelector: {}
+        ingress:
+        - from:
+          - podSelector: {}
+---
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: namespace-allow-from-ingress
+spec:
+  labelSelector:
+    matchLabels:
+      redcomet.ca/tenant: "true"  
+  templates:
+  - excludedPaths:
+      - .status
+      - .spec.replicas
+      - .metadata
+    objectTemplate: |
+      apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: {{ .Name }}-allow-from-ingress
+        namespace: {{ .Name }}  
+      spec:
+        ingress:
+        - from:
+          - namespaceSelector:
+              matchLabels:
+                network.openshift.io/policy-group: "ingress" 
+            podSelector: {}
+        podSelector: {}
+        policyTypes:
+        - Ingress
+---
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: namespace-allow-from-monitoring
+spec:
+  labelSelector:
+    matchLabels:
+      redcomet.ca/tenant: "true"  
+  templates:
+  - excludedPaths:
+      - .status
+      - .spec.replicas
+      - .metadata
+    objectTemplate: |
+      apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: {{ .Name }}-allow-from-monitoring
+        namespace: {{ .Name }}  
+      spec:
+        ingress:
+        - from:
+          - namespaceSelector:
+              matchLabels:
+                network.openshift.io/policy-group: "monitoring"
+            podSelector: {}
+        podSelector: {}
+        policyTypes:
+          - Ingress
+---
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: namespace-allow-to-dns
+spec:
+  labelSelector:
+    matchLabels:
+      redcomet.ca/tenant: "true"  
+  templates:
+  - excludedPaths:
+      - .status
+      - .spec.replicas
+      - .metadata
+    objectTemplate: |  
+      apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: {{ .Name }}-allow-to-dns
+        namespace: {{ .Name }}  
+      spec:
+        podSelector: {}
+        egress:
+          - ports:
+              - protocol: TCP
+                port: 53
+              - protocol: TCP
+                port: 5353
+              - protocol: UDP
+                port: 53
+              - protocol: UDP
+                port: 5353
+            to:
+              - namespaceSelector:
+                  matchLabels:
+                    kubernetes.io/metadata.name: openshift-dns
+        policyTypes:
+          - Egress
+---
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: namespace-allow-from-api
+spec:
+  labelSelector:
+    matchLabels:
+      redcomet.ca/tenant: "true"  
+  templates:
+  - excludedPaths:
+      - .status
+      - .spec.replicas
+      - .metadata
+    objectTemplate: |  
+      apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: {{ .Name }}-allow-from-api
+        namespace: {{ .Name }}  
+      spec:
+        ingress:
+          - from:
+            - namespaceSelector:
+                matchLabels:
+                  kubernetes.io/metadata.name: openshift-kube-apiserver-operator
+              podSelector:
+                matchLabels:
+                  app: kube-apiserver-operator
+        podSelector: {}
+        policyTypes:
+          - Ingress
+---
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: namespace-allow-from-same-namespace
+spec:
+  labelSelector:
+    matchLabels:
+      redcomet.ca/tenant: "true"  
+  templates:
+  - excludedPaths:
+      - .status
+      - .spec.replicas
+      - .metadata
+    objectTemplate: |  
+      apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: {{ .Name }}-allow-from-same-namespace
+        namespace: {{ .Name }}  
+      spec:
+        podSelector: {}
+        ingress:
+        - from:
+          - podSelector: {}

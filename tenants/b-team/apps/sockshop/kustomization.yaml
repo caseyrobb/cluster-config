@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: tenant-b-team-sockshop
+resources:
+  - application.yaml
+
+patches:
+  - patch: |-
+      - op: add
+        path: /metadata/labels/namespace-size
+        value: large 
+    target:
+      kind: Namespace
+      name: tenant-b-team-sockshop
