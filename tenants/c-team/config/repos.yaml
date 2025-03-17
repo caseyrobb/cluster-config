@@ -5,12 +5,12 @@ metadata:
     managed-by: argocd.argoproj.io
   labels:
     argocd.argoproj.io/secret-type: repository
-  name: team-b-repo
+  name: team-c-repo
   namespace: tenant-gitops
 type: Opaque
 stringData:
-  name: team-b-repo
-  project: team-b
+  name: team-c-repo
+  project: team-c
   type: git
   url: https://github.com/caseyrobb/tenant-repos
 ---
@@ -21,11 +21,11 @@ metadata:
     managed-by: argocd.argoproj.io
   labels:
     argocd.argoproj.io/secret-type: repository
-  name: team-b-cluster-config-repo
+  name: team-c-cluster-config-repo
   namespace: tenant-gitops
 type: Opaque
 stringData:
   name: cluster-config-repo
-  project: team-b
+  project: team-c
   type: git
   url: https://github.com/caseyrobb/cluster-config
