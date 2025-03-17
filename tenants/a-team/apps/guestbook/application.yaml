@@ -3,7 +3,7 @@ kind: Application
 metadata:
   labels:
     app.kubernetes.io/instance: tenant-gitops
-  name: tenant-a-team-guestbook
+  name: tenant-a-team-guestbook-app
   namespace: tenant-gitops
 spec:
   destination:
