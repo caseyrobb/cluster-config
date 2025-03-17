@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: tenant-gitops
+    namespace: tenant-b-team-sockshop
   project: b-team
   source:
     path: b-team/sockshop
