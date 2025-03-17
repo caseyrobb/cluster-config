@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
 - argocd.yaml
 - namespace.yaml
-- applicationset.yaml
+- applicationset-config.yaml
+- applicationset-apps.yaml
