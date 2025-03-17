@@ -9,7 +9,7 @@ spec:
   source:
     path: PATCH_ME
     repoURL: https://github.com/caseyrobb/cluster-config/
-    targetRevision: tenant-onboarding
+    targetRevision: HEAD
   project: default
   syncPolicy:
     automated:

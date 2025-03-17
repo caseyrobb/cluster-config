@@ -22,7 +22,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/caseyrobb/cluster-config
-        targetRevision: tenant-onboarding
+        targetRevision: HEAD
         path: 'tenants/{{.team}}/config'
       destination:
         server: https://kubernetes.default.svc
