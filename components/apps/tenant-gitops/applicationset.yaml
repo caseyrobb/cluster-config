@@ -18,6 +18,8 @@ spec:
   template:
     metadata:
       name: 'tenant-{{.team}}'
+      labels:
+        app.kubernetes.io/instance: tenant-gitops
     spec:
       project: '{{.team}}'
       source:
