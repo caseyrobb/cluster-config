@@ -13,8 +13,6 @@ spec:
       elements:
         - team: a-team
           appname: guestbook
-        - team: a-team
-          appname: sockshop
         - team: b-team
           appname: sockshop
         - team: c-team
