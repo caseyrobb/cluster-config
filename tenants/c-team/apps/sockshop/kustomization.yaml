@@ -7,7 +7,7 @@ patches:
   - patch: |-
       - op: add
         path: /metadata/labels/namespace-size
-        value: large 
+        value: small 
     target:
       kind: Namespace
-      name: tenant-b-team-sockshop
+      name: tenant-c-team-sockshop
