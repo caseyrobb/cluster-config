@@ -10,12 +10,6 @@ spec:
     path: PATCH_ME
     repoURL: https://github.com/caseyrobb/cluster-config/
     targetRevision: tenant-onboarding
-  ignoreDifferences:
-  - group: "redhatcop.redhat.io"
-    kind: "NamespaceConfig"
-    name: "*"
-    jqPathExpressions:
-      - .spec.templates[].excludedPaths[]
   project: default
   syncPolicy:
     automated:
