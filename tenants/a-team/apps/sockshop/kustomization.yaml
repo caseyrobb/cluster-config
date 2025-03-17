@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: tenant-a-team-sockshop
 resources:
-  - namespace.yaml
+#  - namespace.yaml
   - rbac.yaml
   - application.yaml
 
