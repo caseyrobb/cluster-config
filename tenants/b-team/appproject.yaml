@@ -16,7 +16,7 @@ spec:
     - b-team
     name: b-team-admin
     policies:
-    - p, proj:b-team, applications, *, tenant-b-team/*, allow
+      - p, proj:b-team:b-team-admin, applications, *, tenant-b-team/*, allow
   sourceNamespaces:
     - tenant-gitops
     - tenant-b-team-*
