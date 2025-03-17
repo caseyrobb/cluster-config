@@ -17,6 +17,8 @@ spec:
           appname: sockshop
         - team: b-team
           appname: sockshop
+        - team: c-team
+          appname: sockshopv2
   template:
     metadata:
       name: 'tenant-{{.team}}-{{.appname}}'
