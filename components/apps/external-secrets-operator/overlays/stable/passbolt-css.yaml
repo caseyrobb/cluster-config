@@ -1,0 +1,17 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: passbolt
+spec:
+  provider:
+    passbolt:
+      auth:
+        passwordSecretRef:
+          key: password
+          name: passbolt
+          namespace: external-secrets
+        privateKeySecretRef:
+          key: passkey
+          name: passbolt
+          namespace: external-secrets
+      host: https://passbolt.redcomet.ca:30097/
