@@ -1,0 +1,8 @@
+apiVersion: operator.external-secrets.io/v1alpha1
+kind: OperatorConfig
+metadata:
+  annotations:
+    operator-sdk/primary-resource: /externalsecret-validate
+    operator-sdk/primary-resource-type: ValidatingWebhookConfiguration.admissionregistration.k8s.io
+  name: external-secrets
+  namespace: openshift-operators
