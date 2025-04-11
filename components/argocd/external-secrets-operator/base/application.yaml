@@ -11,6 +11,10 @@ spec:
     repoURL: https://github.com/caseyrobb/cluster-config/
     targetRevision: HEAD
   project: default
+  ignoreDifferences:
+  - group: "v1"
+    kind: "Secret"
+    name: "v4-0-config-user-idp-0-file-data"
   syncPolicy:
     automated:
       selfHeal: true
