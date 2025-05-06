@@ -9,7 +9,7 @@ resources:
 #- ../../components/argocd/cert-manager/overlays/stable-v1 
 - ../../components/argocd/external-secrets-operator/overlays/stable
 #- ../../components/argocd/compliance-operator/overlays/stable 
-- ../../components/argocd/namespace-configuration-operator/overlays/default
+#- ../../components/argocd/namespace-configuration-operator/overlays/default
 #- ../../components/argocd/clusterversion/overlays/4.17.19
 #- ../../components/argocd/tenant-gitops/
 - ../../components/argocd/openshift-oauth/
