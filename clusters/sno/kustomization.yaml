@@ -21,7 +21,7 @@ resources:
 #- ../../components/apps/openshift-logging/overlays/stable-6.1 
 #- ../../components/apps/loki-operator/overlays/stable-6.1
 #- ../../components/apps/openshift-pipelines-operator/overlays/latest 
-- ../../components/apps/advanced-cluster-security/overlays/stable
+#- ../../components/apps/advanced-cluster-security/overlays/stable
 #- ../../components/apps/advanced-cluster-management/overlays/release-2.12
 #- ../../components/apps/strimzi-kafka-opeartor/overlays/stable 
 
