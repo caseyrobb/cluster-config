@@ -1,0 +1,15 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+- ../../base
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/source/path
+        value: 'components/apps/advanced-cluster-security/overlays/stable'
+    target:
+      kind: Application
+      name: advanced-cluster-security
+      namespace: openshift-gitops
