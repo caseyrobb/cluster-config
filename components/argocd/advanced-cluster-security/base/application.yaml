@@ -6,7 +6,6 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: stackrox
   source:
     path: PATCH_ME
     repoURL: https://github.com/caseyrobb/cluster-config/
